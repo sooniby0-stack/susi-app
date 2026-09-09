@@ -21,14 +21,17 @@ async function apiGet(params) {
   return res.json();
 }
 
+const JUDGE_OPTIONS = ['상향', '적정', '안정', '미정'];
+const PRIORITY_OPTIONS = ['1순위', '2순위', '3순위', '4순위', '5순위', '6순위'];
+const MAX_APPLICATIONS = 6;
+
 const FIELD_LABELS = [
+  ['우선순위', 'select', PRIORITY_OPTIONS],
   ['학교명', 'text'], ['학과', 'text'], ['전형유형', 'text'], ['전형명', 'text'],
   ['모집인원', 'text'], ['수능최저', 'text'], ['면접', 'text'], ['내신점수', 'text'],
   ['전년도평균', 'text'], ['원서마감일', 'date'], ['합격발표일', 'date'],
-  ['수험번호', 'text'], ['판단', 'select'], ['기타의견', 'text'], ['추천전형', 'checkbox']
+  ['수험번호', 'text'], ['판단', 'select', JUDGE_OPTIONS], ['기타의견', 'text'], ['추천전형', 'checkbox']
 ];
-
-const JUDGE_OPTIONS = ['상향', '적정', '안정', '미정'];
 
 function judgeClass(judge) {
   const map = { '상향': 'judge-reach', '적정': 'judge-match', '안정': 'judge-safe', '미정': 'judge-unset' };
