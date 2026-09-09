@@ -167,6 +167,34 @@ label { font-size: 12px; color: var(--text-sub); display: block; margin-bottom: 
   .app-card { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ---------- 한 줄 보기 모드 ---------- */
+#cardsWrap.view-line .app-card {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+#cardsWrap.view-line .app-card .card-topline {
+  flex: 0 0 auto;
+  display: block;
+  min-width: 90px;
+}
+#cardsWrap.view-line .app-card .card-topline .remove-btn { display: block; margin-top: 4px; }
+#cardsWrap.view-line .app-card > div:not(.card-topline) {
+  flex: 0 0 auto;
+  min-width: 120px;
+}
+#cardsWrap.view-line .app-card .field-wide,
+#cardsWrap.view-line .app-card .field-full {
+  min-width: 160px;
+}
+#cardsWrap.view-line .app-card .checkbox-row {
+  min-width: 70px;
+  white-space: nowrap;
+}
+
 /* ---------- 상태 뱃지 ---------- */
 .badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 12px; font-weight: 500; }
 .badge.judge-reach { background: var(--reach-bg); color: var(--reach); }
